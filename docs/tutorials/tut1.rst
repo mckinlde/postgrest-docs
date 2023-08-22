@@ -17,12 +17,12 @@ The previous tutorial created a :code:`web_anon` role in the database with which
   -- run this in psql using the database created
   -- in the previous tutorial
 
-  create role todo_user nologin;
-  grant todo_user to authenticator;
+  create role authenticated_user nologin;
+  grant authenticated_user to authenticator;
 
-  grant usage on schema api to todo_user;
-  grant all on api.todos to todo_user;
-  grant usage, select on sequence api.todos_id_seq to todo_user;
+  grant usage on schema api to authenticated_user;
+  grant all on schema api to authenticated_user;
+  grant usage, select on sequence api.<>_id_seq to authenticated_user;
 
 Step 2. Make a Secret
 ---------------------
